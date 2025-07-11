@@ -1,3 +1,4 @@
+// Imp return UserDetails obj which is used in authentication.
 package net.engineeringdigest.journalApp.services;
 
 import net.engineeringdigest.journalApp.entity.User;

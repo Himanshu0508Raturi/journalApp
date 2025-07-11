@@ -1,3 +1,4 @@
+// Interact with DB for User document.
 package net.engineeringdigest.journalApp.repository;
 
 import net.engineeringdigest.journalApp.entity.User;

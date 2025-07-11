@@ -1,3 +1,4 @@
+// user controllers for crud in user.
 package net.engineeringdigest.journalApp.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;

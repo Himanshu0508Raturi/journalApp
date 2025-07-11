@@ -1,3 +1,4 @@
+// public controllers to signup , login , health check
 package net.engineeringdigest.journalApp.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;

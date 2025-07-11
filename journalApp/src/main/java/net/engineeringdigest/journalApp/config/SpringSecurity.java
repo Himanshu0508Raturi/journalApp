@@ -1,3 +1,4 @@
+// Configuration class for spring security
 package net.engineeringdigest.journalApp.config;
 
 import net.engineeringdigest.journalApp.filter.JwtFilter;

@@ -1,3 +1,4 @@
+// Configuration class for Swagger UI
 package net.engineeringdigest.journalApp.config;
 
 // access Url : http://localhost:8080/swagger-ui/index.html

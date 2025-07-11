@@ -1,3 +1,4 @@
+// Business logic for User Service controller.
 package net.engineeringdigest.journalApp.services;
 
 import lombok.extern.slf4j.Slf4j;

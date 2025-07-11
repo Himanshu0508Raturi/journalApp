@@ -1,3 +1,4 @@
+//Its like a pojo class for weather api.
 package net.engineeringdigest.journalApp.api.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;

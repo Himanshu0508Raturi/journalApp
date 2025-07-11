@@ -1,3 +1,4 @@
+// POJO for user
 package net.engineeringdigest.journalApp.entity;
 
 import lombok.Data;

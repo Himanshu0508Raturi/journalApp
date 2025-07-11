@@ -1,3 +1,4 @@
+// To write custom query for user service
 package net.engineeringdigest.journalApp.repository;
 
 import net.engineeringdigest.journalApp.entity.User;

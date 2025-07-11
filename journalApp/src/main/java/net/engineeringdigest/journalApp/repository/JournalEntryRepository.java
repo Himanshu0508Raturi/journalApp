@@ -1,3 +1,4 @@
+// Interact with DB for JournalEntry document.
 package net.engineeringdigest.journalApp.repository;
 
 import net.engineeringdigest.journalApp.entity.JournalEntry;

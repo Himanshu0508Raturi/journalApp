@@ -1,3 +1,4 @@
+// custom authentication filter for JWT authentication
 package net.engineeringdigest.journalApp.filter;
 
 import net.engineeringdigest.journalApp.Utilities.JwtUtil;

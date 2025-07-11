@@ -1,3 +1,4 @@
+// controller to access all admin or to create a new admin user.
 package net.engineeringdigest.journalApp.controller;
 
 import io.swagger.v3.oas.annotations.tags.Tag;

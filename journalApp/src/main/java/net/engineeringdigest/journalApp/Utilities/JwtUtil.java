@@ -1,3 +1,4 @@
+// for implementing jwt authentication, these functions are used in jwt filer class.
 package net.engineeringdigest.journalApp.Utilities;
 
 import org.springframework.stereotype.Component;

@@ -1,3 +1,4 @@
+// Business logic for operation with weather api.
 package net.engineeringdigest.journalApp.services;
 
 import net.engineeringdigest.journalApp.api.response.WeatherResponse;
