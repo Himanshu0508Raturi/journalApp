@@ -1,2 +1,0 @@
-25-07-10 13:37:11.170 [cluster-rtt-ClusterId{value='686f72f383aa204066bd6fcf', description='null'}-ac-kqdojm1-shard-00-00.6ws9j9u.mongodb.net:27017] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:10, serverValue:233587}] to ac-kqdojm1-shard-00-00.6ws9j9u.mongodb.net:27017 
-25-07-10 13:37:33.445 [SpringApplicationShutdownHook] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:11, serverValue:239426}] to ac-kqdojm1-shard-00-01.6ws9j9u.mongodb.net:27017 
