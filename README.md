@@ -1,199 +1,421 @@
+<div align="center">
+
 # 📔 Journal App
 
-A secure, feature-rich journal application built with Spring Boot and MongoDB that allows users to create, manage, and organize their personal journal entries with JWT authentication and sentiment analysis capabilities.
+### A Secure & Feature-Rich Personal Journal Application
 
-## 🚀 Features
+[![Java](https://img.shields.io/badge/Java-11-orange? style=for-the-badge&logo=java)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7.16-brightgreen?style=for-the-badge&logo=spring)](https://spring.io/projects/spring-boot)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
+[![JWT](https://img.shields.io/badge/JWT-Authentication-blue?style=for-the-badge&logo=jsonwebtokens)](https://jwt.io/)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
-- **User Authentication & Authorization**: Secure JWT-based authentication system with role-based access control (USER, ADMIN)
-- **Journal Entry Management**:  Create, read, update, and delete personal journal entries
-- **MongoDB Integration**: Persistent storage using MongoDB with transaction support
-- **Spring Security**:  Comprehensive security implementation with password encryption (BCrypt)
-- **RESTful API**: Well-structured REST endpoints for all operations
-- **Weather Integration**:  Get weather information for specific cities
-- **Sentiment Analysis**: Optional sentiment analysis feature for journal entries
-- **API Documentation**: Integrated Swagger UI for easy API exploration and testing
-- **Logging**: Comprehensive logging for debugging and monitoring
+A secure, feature-rich journal application built with **Spring Boot** and **MongoDB** that allows users to create, manage, and organize their personal journal entries with **JWT authentication**, **sentiment analysis**, and **weather integration**.
+
+[Features](#-features) • [Tech Stack](#️-technology-stack) • [Installation](#️-installation--setup) • [API Docs](#-api-documentation) • [Contributing](#-contributing)
+
+</div>
+
+---
+
+## ✨ Features
+
+### 🔐 Security & Authentication
+- **JWT-based Authentication**: Stateless, secure token-based authentication
+- **Role-Based Access Control**: USER and ADMIN roles with different permissions
+- **Password Encryption**: BCrypt hashing for secure password storage
+- **Unique Username Enforcement**: MongoDB indexing ensures username uniqueness
+
+### 📝 Journal Management
+- **CRUD Operations**: Create, Read, Update, and Delete journal entries
+- **User-Specific Entries**: Each user can only access their own journal entries
+- **Transaction Support**: MongoDB transactions ensure data consistency
+- **Sentiment Analysis**: Optional AI-powered sentiment analysis for entries
+
+### 🌐 Additional Features
+- **Weather Integration**: Get real-time weather data for any city
+- **RESTful API**: Clean, well-structured REST endpoints
+- **API Documentation**: Interactive Swagger UI for API exploration
+- **Comprehensive Logging**: Built-in logging for debugging and monitoring
+
+---
 
 ## 🛠️ Technology Stack
 
-- **Framework**: Spring Boot 2.7.16
-- **Language**: Java 11
-- **Database**: MongoDB
-- **Security**: Spring Security + JWT (JSON Web Tokens)
-- **Build Tool**: Maven
-- **API Documentation**: Swagger/OpenAPI 3.0 (springdoc-openapi-ui)
-- **Code Simplification**:  Lombok
-- **Testing**: JUnit
+<table>
+<tr>
+<td>
+
+**Backend**
+- ☕ Java 11
+- 🍃 Spring Boot 2.7.16
+- 🔒 Spring Security
+- 🔑 JWT (JJWT 0.12.5)
+
+</td>
+<td>
+
+**Database**
+- 🍃 MongoDB
+- 📊 Spring Data MongoDB
+- 🔄 Transaction Support
+
+</td>
+<td>
+
+**Tools & Libraries**
+- 🔨 Maven
+- 📝 Lombok
+- 📚 Swagger/OpenAPI 3.0
+- ✅ JUnit (Testing)
+
+</td>
+</tr>
+</table>
+
+---
 
 ## 📋 Prerequisites
 
-Before running this application, ensure you have: 
+Before you begin, ensure you have the following installed:
 
-- Java 11 or higher installed
-- MongoDB instance (local or MongoDB Atlas)
-- Maven 3.6+ installed
-- IDE (IntelliJ IDEA, Eclipse, or VS Code recommended)
+| Requirement | Version | Download Link |
+|------------|---------|---------------|
+| ☕ **Java JDK** | 11 or higher | [Oracle JDK](https://www.oracle.com/java/technologies/downloads/) |
+| 🍃 **MongoDB** | 4.0+ | [MongoDB Download](https://www.mongodb.com/try/download/community) |
+| 🔨 **Maven** | 3.6+ | [Maven Download](https://maven.apache.org/download.cgi) |
+| 💻 **IDE** | Any | [IntelliJ IDEA](https://www.jetbrains.com/idea/) / [VS Code](https://code.visualstudio.com/) |
+
+---
 
 ## ⚙️ Installation & Setup
 
-### 1. Clone the repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/Himanshu0508Raturi/journalApp.git
 cd journalApp/journalApp
 ```
 
-### 2. Configure MongoDB
+### 2️⃣ Configure MongoDB
 
-Update your MongoDB connection settings in `application.properties` or `application.yml`:
+#### Option A: Local MongoDB
+
+Create `src/main/resources/application.properties`:
 
 ```properties
+# MongoDB Configuration
 spring.data.mongodb.uri=mongodb://localhost:27017/journalApp
-# or for MongoDB Atlas
-# spring. data. mongodb.uri=mongodb+srv://<username>:<password>@cluster. mongodb.net/journalApp
+spring.data.mongodb.database=journalApp
+
+# JWT Configuration
+jwt.secret=your-secret-key-here-make-it-long-and-secure
+jwt.expiration=86400000
+
+# Logging
+logging.level.net.engineeringdigest. journalApp=DEBUG
 ```
 
-### 3. Build the project
+#### Option B: MongoDB Atlas (Cloud)
+
+```properties
+spring.data.mongodb.uri=mongodb+srv://<username>:<password>@cluster.mongodb.net/journalApp? retryWrites=true&w=majority
+```
+
+### 3️⃣ Build the Project
 
 ```bash
 ./mvnw clean install
 ```
 
-### 4. Run the application
+Or on Windows:
+
+```bash
+mvnw. cmd clean install
+```
+
+### 4️⃣ Run the Application
 
 ```bash
 ./mvnw spring-boot:run
 ```
 
-The application will start on `http://localhost:8080`
+The application will start on **`http://localhost:8080`** 🚀
+
+---
 
 ## 📚 API Documentation
 
-Once the application is running, access the Swagger UI at: 
+### 🌐 Swagger UI
+
+Once the application is running, explore the interactive API documentation: 
 
 ```
-http://localhost:8080/swagger-ui. html
+http://localhost:8080/swagger-ui.html
 ```
 
-### Main API Endpoints
+### 📍 API Endpoints
 
-#### Authentication
+#### 🔓 Public Endpoints (No Authentication Required)
 
-- `POST /public/signup` - Register a new user
-- `POST /public/login` - Authenticate and receive JWT token
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/public/signup` | Register a new user |
+| `POST` | `/public/login` | Login and receive JWT token |
 
-#### Journal Entries
+**Signup Example:**
 
-- `POST /journal` - Create a new journal entry
-- `GET /journal` - Get all journal entries for authenticated user
-- `GET /journal/id/{id}` - Get specific journal entry by ID
-- `PUT /journal/id/{id}` - Update a journal entry
-- `DELETE /journal/id/{id}` - Delete a journal entry
+```json
+POST /public/signup
+{
+  "userName": "john_doe",
+  "password": "SecurePass123!"
+}
+```
 
-#### User Management
+**Login Example:**
 
-- `GET /user` - Get user information
-- `PUT /user` - Update user profile
-- `DELETE /user` - Delete user account
-- `GET /user/{city}` - Get weather information for a city
+```json
+POST /public/login
+{
+  "userName": "john_doe",
+  "password": "SecurePass123!"
+}
 
-## 🔐 Security
+Response:
+{
+  "token":  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
 
-This application implements multiple layers of security: 
+#### 📝 Journal Endpoints (Requires Authentication)
 
-1. **Password Encryption**: All passwords are encrypted using BCryptPasswordEncoder
-2. **JWT Authentication**:  Stateless authentication using JSON Web Tokens
-3. **Role-Based Access**: Different access levels for USER and ADMIN roles
-4. **Unique Username**: Enforced unique usernames with MongoDB indexing
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `POST` | `/journal` | Create a new journal entry |
+| `GET` | `/journal` | Get all your journal entries |
+| `GET` | `/journal/id/{id}` | Get a specific journal entry |
+| `PUT` | `/journal/id/{id}` | Update a journal entry |
+| `DELETE` | `/journal/id/{id}` | Delete a journal entry |
+
+**Create Journal Entry:**
+
+```json
+POST /journal
+Headers: Authorization: Bearer <your-jwt-token>
+
+{
+  "title": "My First Day",
+  "content": "Today was amazing! Started learning Spring Boot."
+}
+```
+
+#### 👤 User Endpoints (Requires Authentication)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/user` | Get your user information |
+| `PUT` | `/user` | Update your profile |
+| `DELETE` | `/user` | Delete your account |
+| `GET` | `/user/weather/{city}` | Get weather info for a city |
+
+#### 🔧 Admin Endpoints (Requires ADMIN Role)
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET` | `/admin/all-users` | Get all users |
+| `POST` | `/admin/create-admin` | Create admin user |
+
+---
+
+## 🔐 Authentication Flow
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant API
+    participant JWT
+    participant MongoDB
+
+    User->>API: POST /public/signup
+    API->>MongoDB: Save User (Encrypted Password)
+    MongoDB-->>API:  User Created
+    API-->>User: Success
+
+    User->>API: POST /public/login
+    API->>MongoDB: Verify Credentials
+    API->>JWT: Generate Token
+    JWT-->>API: JWT Token
+    API-->>User: Return Token
+
+    User->>API:  GET /journal (with JWT)
+    API->>JWT: Validate Token
+    JWT-->>API: Valid
+    API->>MongoDB:  Fetch Entries
+    MongoDB-->>API:  Journal Entries
+    API-->>User: Return Entries
+```
+
+---
 
 ## 🏗️ Project Structure
 
 ```
 journalApp/
-├── src/main/java/net/engineeringdigest/journalApp/
-│   ├── controller/         # REST API controllers
-│   ├── entity/            # MongoDB entity models (User, JournalEntry)
-│   ├── repository/        # MongoDB repositories
-│   ├── services/          # Business logic layer
-│   ├── Utilities/         # Utility classes (JWT, etc.)
-│   └── JournalApplication.java
-├── src/main/resources/
-│   └── application.properties
-├── src/test/             # Unit and integration tests
-└── pom.xml              # Maven dependencies
+├── 📁 src/main/java/net/engineeringdigest/journalApp/
+│   ├── 📂 controller/           # REST API Controllers
+│   │   ├── JournalEntryController.java
+│   │   ├── UserController.java
+│   │   ├── PublicController.java
+│   │   └── AdminController.java
+│   ├── 📂 entity/               # MongoDB Entity Models
+│   │   ├── JournalEntry.java
+│   │   └── User.java
+│   ├── 📂 repository/           # MongoDB Repositories
+│   │   ├── JournalEntryRepository.java
+│   │   └── UserRepository.java
+│   ├── 📂 services/             # Business Logic Layer
+│   │   ├── JournalEntryService.java
+│   │   ├── UserService.java
+│   │   └── CustomUserDetailsService.java
+│   ├── 📂 config/               # Configuration Classes
+│   │   ├── SecurityConfig.java
+│   │   └── SwaggerConfig.java
+│   ├── 📂 Utilities/            # Utility Classes
+│   │   ├── JwtUtil.java
+│   │   └── JwtAuthenticationFilter.java
+│   └── 📄 JournalApplication.java
+├── 📁 src/main/resources/
+│   ├── application.properties
+│   └── application.yml
+├── 📁 src/test/                 # Unit & Integration Tests
+│   └── java/
+└── 📄 pom.xml                   # Maven Dependencies
 ```
 
-## 📦 Key Dependencies
+---
 
-```xml
-<!-- Core Spring Boot -->
-spring-boot-starter-web
-spring-boot-starter-security
-spring-boot-starter-data-mongodb
+### 🌤️ Weather Integration
 
-<!-- JWT Authentication -->
-jjwt-api, jjwt-jackson, jjwt-impl (v0.12.5)
-
-<!-- Code Generation -->
-lombok (v1.18.38)
-
-<!-- API Documentation -->
-springdoc-openapi-ui (v1.7.0)
-```
-
-## 🧪 Testing
-
-Run tests using: 
+Get weather information to add context to your journal: 
 
 ```bash
-./mvnw test
+GET /user/weather/London
 ```
 
-## 📝 Features in Detail
+Response: 
 
-### Transaction Management
+```json
+{
+  "city": "London",
+  "temperature": 15.5,
+  "condition": "Partly Cloudy",
+  "humidity": 65
+}
+```
+
+### 🔄 Transaction Management
 
 The application uses MongoDB transactions for critical operations:
 
-- Creating journal entries with user association
-- Deleting journal entries with user reference cleanup
+- ✅ Creating journal entries with user association
+- ✅ Deleting journal entries with user reference cleanup
+- ✅ User deletion with cascade delete of all entries
 
-**Note**:  Transactions require MongoDB replica sets (works with MongoDB Atlas by default)
+**Note**:  Transactions require MongoDB replica sets (available by default with MongoDB Atlas).
 
-### Sentiment Analysis
+---
 
-Users can opt-in for sentiment analysis of their journal entries by setting `sentimentAnalysis: true` in their user profile.
+## 🚀 Deployment
 
-### Weather Integration
+### Docker Deployment
 
-Get current weather information for any city to add context to your journal entries.
+Create `Dockerfile`:
+
+```dockerfile
+FROM openjdk:11-jre-slim
+WORKDIR /app
+COPY target/journalApp-0.0.1-SNAPSHOT. jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
+```
+
+Build and run:
+
+```bash
+docker build -t journal-app .
+docker run -p 8080:8080 journal-app
+```
+
+### Heroku Deployment
+
+```bash
+heroku create journal-app-yourname
+git push heroku main
+heroku config:set MONGODB_URI=your-mongodb-uri
+```
+
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please follow these steps:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **Open** a Pull Request
 
-## 📄 License
+### Contribution Guidelines
 
-This project is created for educational purposes.
+- Follow Java coding conventions
+- Write unit tests for new features
+- Update documentation as needed
+- Keep commits atomic and meaningful
 
-## 👤 Author
+---
+
+## 📝 License
+
+This project is created for **educational purposes**. Feel free to use it as a reference for your own projects! 
+
+---
+
+## 👨‍💻 Author
 
 **Himanshu Raturi**
 
-- GitHub: [@Himanshu0508Raturi](https://github.com/Himanshu0508Raturi)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/himanshu-raturi/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=for-the-badge&logo=github)](https://github.com/Himanshu0508Raturi)
+
+</div>
+
+---
 
 ## 🙏 Acknowledgments
 
-- Spring Boot community for excellent documentation
-- MongoDB for providing a flexible NoSQL database
-- Engineering Digest for project inspiration
+- 🍃 **Spring Boot Community** for excellent documentation and support
+- 🍃 **MongoDB** for providing a flexible and powerful NoSQL database
+- 💡 **Engineering Digest** for project inspiration and guidance
+- 🌟 **Open Source Community** for amazing tools and libraries
 
 ---
-## Developed By- Himanshu Raturi [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/himanshu-raturi/)
-**Note**: This is a learning project demonstrating Spring Boot best practices, security implementation, and MongoDB integration. Feel free to use it as a reference for your own projects! 
+
+## 📊 Project Stats
+
+![GitHub repo size](https://img.shields.io/github/repo-size/Himanshu0508Raturi/journalApp)
+![GitHub stars](https://img.shields.io/github/stars/Himanshu0508Raturi/journalApp?style=social)
+![GitHub forks](https://img.shields.io/github/forks/Himanshu0508Raturi/journalApp? style=social)
+![GitHub issues](https://img.shields.io/github/issues/Himanshu0508Raturi/journalApp)
+![GitHub last commit](https://img.shields.io/github/last-commit/Himanshu0508Raturi/journalApp)
+
+---
+
+<div align="center">
+
+### ⭐ Star this repository if you find it helpful!
+
+*This is a learning project demonstrating Spring Boot best practices, security implementation, and MongoDB integration.*
+
+</div>
